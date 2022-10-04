@@ -27,7 +27,8 @@
                                 <th>Images</th>
                                 <th>Title</th>
                                 <th>Caption</th>
-                                <th>Text</th>
+                                <th>Periode</th>
+                                <th>Price</th>
                                 <th>Date</th>
                                 <th>Option</th>
                             </tr>
@@ -38,7 +39,8 @@
                                 <th>Images</th>
                                 <th>Title</th>
                                 <th>Caption</th>
-                                <th>Text</th>
+                                <th>Periode</th>
+                                <th>Price</th>
                                 <th>Date</th>
                                 <th>Option</th>
                             </tr>
@@ -49,11 +51,12 @@
                                 <tr>
                                     <td><?= $no++; ?></td>
                                     <td>
-                                        <img src="<?= base_url('assets/img/uploaded/promo/')  .  $result['poto']; ?>" alt="img-devoyage" style="height: 100px; width= auto;" class="rounded mx-auto d-block">
+                                        <img src="<?= base_url('assets/img/uploaded/promo/')  .  $result['img_promo']; ?>" alt="img-devoyage" style="height: 100px; width= auto;" class="rounded mx-auto d-block">
                                     </td>
                                     <td><?= $result['title']; ?></td>
                                     <td><?= $result['caption']; ?></td>
-                                    <td><?= $result['paragraph']; ?></td>
+                                    <td><?= $result['periode']; ?></td>
+                                    <td><?= $result['price']; ?></td>
                                     <?php $now = $result['date'];
                                     $tg = date('d M Y', $now); ?>
                                     <td><?= $tg; ?></td>
@@ -71,43 +74,59 @@
                                 </tr>
                                 <!-- Modal -->
                                 <div class="modal fade" id="editThisPromo<?= $result['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editThisPromoLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-xl">
+                                    <div class="modal-dialog modal-xl modal-dialog-scrollable">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="editThisPromoLabel">Update Promo ?</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <form action="<?php echo base_url('development/projcet_update_promo/') . $result['id']; ?>" method="post" enctype="multipart/form-data">
-                                                            <div class="input-group mb-3">
-                                                                <span class="input-group-text" id="basic-addon1">Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                                                <input type="text" class="form-control" placeholder="Title Promo" aria-label="Title Promo" aria-describedby="basic-addon1" name="title_promo" value="<?= $result['title']; ?>">
+                                                <div class="card">
+                                                    <h5 class="card-header">Edit Promo</h5>
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Today is The Best Day</h5>
+                                                        <p class="card-text">This page is to edit promotion image, to show website visitors.</p>
+                                                        <?= form_open_multipart('development/projcet_update_promo/' . $result['id']); ?>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="titlePromo" class="form-label">Title Promo</label>
+                                                                    <input type="text" class="form-control" id="titlePromo" aria-describedby="titleHelp" name="title" value="<?= $result['title']; ?>">
+                                                                    <div id="titleHelp" class="form-text">Promo Title is Important!</div>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="CaptionPromo" class="form-label">Caption Promo</label>
+                                                                    <input type="text" class="form-control" id="CaptionPromo" name="caption" value="<?= $result['caption']; ?>">
+                                                                </div>
                                                             </div>
-                                                            <div class="input-group mb-3">
-                                                                <span class="input-group-text" id="basic-addon1">Caption</span>
-                                                                <input type="text" class="form-control" placeholder="Caption Promo" aria-label="Caption Promo" aria-describedby="basic-addon2" name="caption_promo" value="<?= $result['caption']; ?>">
+                                                            <div class="col-md-4">
+                                                                <div class="mb-3">
+                                                                    <label for="periodePromo" class="form-label">Periode Promo</label>
+                                                                    <input type="text" class="form-control" id="periodePromo" aria-describedby="titleHelp" name="periode" value="<?= $result['periode']; ?>">
+                                                                    <div id="titleHelp" class="form-text">Promo Periode is Important!</div>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="PricePromo" class="form-label">Price</label>
+                                                                    <input type="text" class="form-control" id="PricePromo" name="price" value="<?= $result['price']; ?>">
+                                                                </div>
                                                             </div>
-                                                            <div class="input-group mb-3">
-                                                                <span class="input-group-text" id="basic-addon1">Periode</span>
-                                                                <input type="text" class="form-control" placeholder="Periode-promo" aria-label="Periode-promo" aria-describedby="basic-addon3" name="periode_promo" value="<?= $result['periode']; ?>">
+                                                            <div class="col-md-4">
+                                                                <img src="<?= base_url('assets/img/uploaded/promo/' . $result['img_promo']); ?>" alt="" class="d-block mx-auto w-75 rounded-3">
                                                             </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <div class="mb-3">
+                                                                    <label for="img_promo" class="form-label">Image Promo</label>
+                                                                    <input type="file" class="form-control" id="img_promo" name="img_promo">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-grid mb-3">
+                                                            <button type="submit" class="btn btn-success">Save</button>
+                                                        </div>
+                                                        <?= form_close(); ?>
                                                     </div>
-                                                    <div class="col-lg-4 offset-lg-1">
-                                                        <label for="textpromo" class="form-label"><span class="fw-bold">Text Promo</span></label>
-                                                        <textarea name="text_promo" id="text_promo" cols="5" rows="2" class="form-control"><?= $result['paragraph']; ?></textarea>
-                                                        <span><small class="text-danger">*required</small></span>
-
-                                                    </div>
-                                                    <div class="input-group mb-3">
-                                                        <input type="file" class="form-control" placeholder="Images" name="img_promo">
-                                                        <span class="input-group-text" id="basic-addon1">JPG|PNG</span>
-                                                    </div>
-                                                    <div class="d-grid">
-                                                        <button type="submit" class="btn btn-primary">Save</button>
-                                                    </div>
-                                                    </form>
                                                 </div>
                                             </div>
 

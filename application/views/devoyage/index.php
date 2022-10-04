@@ -95,12 +95,13 @@
                 </div>
                 <?php foreach ($promo_result as $promo) : ?>
                     <div class="col m6 s12">
-                        <img class="materialboxed" src="<?= base_url('assets/img/gallery/' . $promo->img_promo); ?>">
+                        <img class="materialboxed" src="<?= base_url('assets/img/uploaded/promo/' . $promo->img_promo); ?>">
                         <blockquote>
                             <ul>
                                 <li>
                                     <h5 class="light text-light"><?= $promo->title; ?></h5>
                                 </li>
+                                <li><?= $promo->caption; ?></li>
                                 <li><?= $promo->periode; ?></li>
                                 <li><?= $promo->price; ?></li>
                             </ul>

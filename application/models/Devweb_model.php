@@ -58,12 +58,12 @@ class Devweb_model extends CI_Model
 	public function add_apps_for_promo()
 	{
 		$data = [
-			'title'			=> $this->input->post('title_promo', true),
-			'paragraph'		=> $this->input->post('text_promo', true),
-			'caption'		=> $this->input->post('caption_promo', true),
-			'periode'		=> $this->input->post('periode_promo', true),
+			'title'			=> $this->input->post('title', true),
+			'caption'		=> $this->input->post('caption', true),
+			'periode'		=> $this->input->post('periode', true),
+			'price'			=> $this->input->post('price', true),
+			'img_promo'		=> _promoImg(),
 			'status'		=> 1, // rever to active ==> 0 rever to non-active
-			'poto'			=> _promoImg(),
 			'date'			=> time()
 		];
 		$this->db->insert('promo', $data);
@@ -89,13 +89,11 @@ class Devweb_model extends CI_Model
 		$id = $this->get_promoById($id);
 		$data = [
 
-			'title'			=> $this->input->post('title_promo', true),
-			'paragraph'		=> $this->input->post('text_promo', true),
-			'caption'		=> $this->input->post('caption_promo', true),
-			'periode'		=> $this->input->post('periode_promo', true),
-			// 'status'		=> 1, // rever to active ==> 0 rever to non-active
-			'poto'			=> _updatePromoImg(),
-			// 'date'			=> time()
+			'title'			=> $this->input->post('title', true),
+			'caption'		=> $this->input->post('caption', true),
+			'periode'		=> $this->input->post('periode', true),
+			'price'			=> $this->input->post('price', true),
+			'img_promo'		=> _updatePromoImg(),
 
 		];
 		return $this->db->update('promo', $data, ['id' => $id['id']]);
