@@ -240,6 +240,7 @@ class Development extends CI_Controller
 		$this->load->view('templates/app/footer_app');
 	}
 
+	# Update Gallery
 	public function projcet_update_gallery($id)
 	{
 		_in_System();
@@ -258,6 +259,7 @@ class Development extends CI_Controller
 		}
 	}
 
+	# Delete Gallery
 	public function d_Dgallery($id)
 	{
 		_in_System();
