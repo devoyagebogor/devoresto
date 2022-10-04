@@ -48,6 +48,13 @@ class Devweb_model extends CI_Model
 		return $this->db->update('slideshow', $data, ['id' => $id]);
 	}
 
+	public function d_app_slides($id)
+	{
+		$id = $this->get_sliderById($id)['id'];
+		d_SlideImg();
+		return $this->db->delete('slideshow', ['id' => $id]);
+	}
+
 	public function add_apps_for_promo()
 	{
 		$data = [

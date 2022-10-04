@@ -53,6 +53,14 @@ function _updateSlider()
 	return $update_ImgSlides;
 }
 
+function d_SlideImg()
+{
+	$id    = ci()->uri->segment(3);
+	$file_ = ci()->db->get_where('slideshow', ['id' => $id])->row_array();
+	$f_d   = $file_['img_slides'];
+	unlink(FCPATH . '/assets/img/uploaded/slides/' . $f_d);
+}
+
 function _promoImg()
 {
 	$config['allowed_types'] = 'jpg|jpeg|png';

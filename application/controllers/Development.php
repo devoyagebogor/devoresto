@@ -80,6 +80,15 @@ class Development extends CI_Controller
 		}
 	}
 
+	# Delete Slideshow
+	public function d_Slides($id)
+	{
+		_in_System();
+		$this->devweb->d_app_slides($id);
+		$this->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Delete Slideshow Success!</strong> You Can Add the new Slideshow Again. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+		redirect('development/project_web_devs_slideshow');
+	}
+
 	# Add Product Promo
 	public function dev_promo()
 	{
