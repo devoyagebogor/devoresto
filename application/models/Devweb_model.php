@@ -13,22 +13,44 @@ class Devweb_model extends CI_Model
 		$this->load->helper('development_helper');
 	}
 
-	public function register_of_development_account()
+	public function add_apps_for_slideshow()
 	{
-		// register account of development website of devoyage bogor -  Deresto Coffee & Kitchen
 		$data = [
-
-			'email'		=> $this->input->post('email', TRUE),
-			'password'	=> password_hash($this->input->post('pass1', TRUE), PASSWORD_DEFAULT)
-
+			'title_ss'		=> $this->input->post('title_ss', true),
+			'animation'		=> $this->input->post('animation', true),
+			'text_ss'		=> $this->input->post('text_ss', true),
+			'addons'		=> $this->input->post('addons', true),
+			'img_slides'	=> _sliderImg()
 		];
-		$this->db->insert('development_web', $data);
+		$this->db->insert('slideshow', $data);
+	}
+
+	public function show_slider()
+	{
+		return $this->db->get('slideshow')->result_array();
+	}
+
+	public function get_sliderById($id)
+	{
+		return $this->db->get_where('slideshow', ['id' => $id])->row_array();
+	}
+
+	public function update_this_slider($id)
+	{
+		$id = $this->get_sliderById($id)['id'];
+		$data = [
+			'title_ss'		=> $this->input->post('title_ss', true),
+			'animation'		=> $this->input->post('animation', true),
+			'text_ss'		=> $this->input->post('text_ss', true),
+			'addons'		=> $this->input->post('addons', true),
+			'img_slides'	=> _updateSlider()
+		];
+		return $this->db->update('slideshow', $data, ['id' => $id]);
 	}
 
 	public function add_apps_for_promo()
 	{
 		$data = [
-
 			'title'			=> $this->input->post('title_promo', true),
 			'paragraph'		=> $this->input->post('text_promo', true),
 			'caption'		=> $this->input->post('caption_promo', true),
@@ -36,7 +58,6 @@ class Devweb_model extends CI_Model
 			'status'		=> 1, // rever to active ==> 0 rever to non-active
 			'poto'			=> _promoImg(),
 			'date'			=> time()
-
 		];
 		$this->db->insert('promo', $data);
 	}

@@ -34,7 +34,7 @@
             <ul class="slides">
                 <?php foreach ($slides as $slide) : ?>
                     <li>
-                        <img src="<?= base_url('assets/img/background/' . $slide->img_slides); ?>" class="responsive-img"> <!-- random image -->
+                        <img src="<?= base_url('assets/img/uploaded/slides/' . $slide->img_slides); ?>" class="responsive-img"> <!-- random image -->
                         <div class="caption <?= $slide->animation; ?>">
                             <h3><?= $slide->title_ss; ?></h3>
                             <p class="black-text text-darken-5"><?= $slide->text_ss; ?></p>

@@ -3,34 +3,34 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Add Promo +</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel">Add Slideshow +</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-6">
-                                <form action="<?php echo base_url('development/dev_promo'); ?>" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo base_url('development/dev_Slideshow'); ?>" method="post" enctype="multipart/form-data">
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="basic-addon1">Title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                                        <input type="text" class="form-control" placeholder="Title Promo" aria-label="Title Promo" aria-describedby="basic-addon1" name="title_promo">
+                                        <input type="text" class="form-control" placeholder="Title Slideshow" aria-label="Title Slideshow" aria-describedby="basic-addon1" name="title_ss">
                                     </div>
                                     <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Caption</span>
-                                        <input type="text" class="form-control" placeholder="Caption Promo" aria-label="Caption Promo" aria-describedby="basic-addon2" name="caption_promo">
-                                    </div>
-                                    <div class="input-group mb-3">
-                                        <span class="input-group-text" id="basic-addon1">Periode</span>
-                                        <input type="text" class="form-control" placeholder="Periode-promo" aria-label="Periode-promo" aria-describedby="basic-addon3" name="periode_promo">
+                                        <span class="input-group-text" id="basic-addon1">Animation</span>
+                                        <input type="text" class="form-control" placeholder="right-align / left-align / center-align" aria-label="Caption Promo" aria-describedby="basic-addon2" name="animation">
                                     </div>
                             </div>
-                            <div class="col-lg-4 offset-lg-1">
-                                <label for="textpromo" class="form-label"><span class="fw-bold">Text Promo</span></label>
-                                <textarea name="text_promo" id="text_promo" cols="5" rows="2" class="form-control"></textarea>
-                                <span><small class="text-danger">*required</small></span>
-
+                            <div class="col-lg-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Text</span>
+                                    <input type="text" class="form-control" placeholder="Text-slide" aria-label="Periode-promo" aria-describedby="basic-addon3" name="text_ss">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1">Addons</span>
+                                    <input type="text" class="form-control" placeholder="Text-Addons" aria-label="Text-addons" name="addons">
+                                </div>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="file" class="form-control" placeholder="Images" name="img_promo">
+                                <input type="file" class="form-control" placeholder="Images" name="img_slides">
                                 <span class="input-group-text" id="basic-addon1">JPG|PNG</span>
                             </div>
                             <div class="d-grid">

@@ -44,7 +44,7 @@
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link" href="<?= base_url('development/project_web_devs_review'); ?>">Promo</a>
-                            <a class="nav-link" href="<?= base_url('development/project_web_devs_packages'); ?>">Packages</a>
+                            <a class="nav-link" href="<?= base_url('development/project_web_devs_slideshow'); ?>">Slidehow</a>
                             <a class="nav-link" href="<?= base_url('development/project_web_devs_gallery'); ?>">Gallery</a>
                         </nav>
                     </div>

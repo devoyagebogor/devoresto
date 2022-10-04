@@ -6,6 +6,53 @@ function ci()
 	return get_instance();
 }
 
+function _sliderImg()
+{
+	$config['allowed_types'] = 'jpg|jpeg|png';
+	$config['upload_path']	 = './assets/img/uploaded/slides/';
+	$config['max_size']		 = 2098;
+
+	ci()->load->library('upload', $config);
+
+	if (!ci()->upload->do_upload('img_slides')) {
+		ci()->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Failed!</strong> Images not to Insert, try again<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+		redirect('development/project_web_devs_app');
+	} else {
+		$img = ci()->upload->data();
+		$img = $img['file_name'];
+	}
+
+	return $img;
+}
+
+function _updateSlider()
+{
+	$id    = ci()->uri->segment(3);
+	$file_ = ci()->db->get_where('slideshow', ['id' => $id])->row_array();
+	$old_ImgSlides  = $file_['img_slides'];
+
+	$config['allowed_types'] = 'jpg|jpeg|png';
+	$config['upload_path']	 = './assets/img/uploaded/slides/';
+	$config['max_size']		 = 2098;
+
+	ci()->load->library('upload', $config);
+
+	if (!empty(FCPATH . '/assets/img/uploaded/slides/' . $old_ImgSlides)) {
+		if (ci()->upload->do_upload('img_slides')) {
+			unlink(FCPATH . '/assets/img/uploaded/slides/' . $old_ImgSlides);
+			$update_ = ci()->upload->data();
+			$update_ImgSlides = $update_['file_name'];
+		} else {
+			$update_ImgSlides = $old_ImgSlides;
+		}
+	} else {
+		$update_ = ci()->upload->data();
+		$update_ImgSlides = $update_['file_name'];
+	}
+
+	return $update_ImgSlides;
+}
+
 function _promoImg()
 {
 	$config['allowed_types'] = 'jpg|jpeg|png';
@@ -29,7 +76,7 @@ function _updatePromoImg()
 {
 	$id    = ci()->uri->segment(3);
 	$file_ = ci()->db->get_where('promo', ['id' => $id])->row_array();
-	$old_ImgPromo  = $file_['poto'];
+	$old_ImgSlides  = $file_['poto'];
 
 	$config['allowed_types'] = 'jpg|jpeg|png';
 	$config['upload_path']	 = './assets/img/uploaded/promo/';
@@ -37,13 +84,13 @@ function _updatePromoImg()
 
 	ci()->load->library('upload', $config);
 
-	if (!empty(FCPATH . '/assets/img/uploaded/promo/' . $old_ImgPromo)) {
+	if (!empty(FCPATH . '/assets/img/uploaded/promo/' . $old_ImgSlides)) {
 		if (ci()->upload->do_upload('img_promo')) {
-			unlink(FCPATH . '/assets/img/uploaded/promo/' . $old_ImgPromo);
+			unlink(FCPATH . '/assets/img/uploaded/promo/' . $old_ImgSlides);
 			$update_ = ci()->upload->data();
 			$update_ImgPromo = $update_['file_name'];
 		} else {
-			$update_ImgPromo = $old_ImgPromo;
+			$update_ImgPromo = $old_ImgSlides;
 		}
 	} else {
 		$update_ = ci()->upload->data();
@@ -59,6 +106,14 @@ function d_promoImg()
 	$file_ = ci()->db->get_where('promo', ['id' => $id])->row_array();
 	$f_d   = $file_['poto'];
 	unlink(FCPATH . '/assets/img/uploaded/promo/' . $f_d);
+}
+
+function cek_add_slideshow()
+{
+	ci()->form_validation->set_rules('title_ss', 'Title', 'trim|required');
+	ci()->form_validation->set_rules('animation', 'Animation', 'trim|required');
+	ci()->form_validation->set_rules('title_ss', 'Title', 'trim|required');
+	ci()->form_validation->set_rules('text_ss', 'Text', 'trim|required');
 }
 
 function cek_add_product_promo()
