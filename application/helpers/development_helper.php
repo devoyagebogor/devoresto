@@ -197,3 +197,67 @@ function d_packagesImg()
 	$Packages_f = $Packages->img_package;
 	unlink(FCPATH . '/assets/img/uploaded/packages/' . $Packages_f);
 }
+
+function cek_add_product_gallerys()
+{
+	ci()->form_validation->set_rules('title_gallery', 'Title Gallery', 'trim|required|max_length[25]');
+	ci()->form_validation->set_rules('caption_gallery', 'Caption Gallery', 'trim|required|max_length[50]');
+}
+
+function _galleryImg()
+{
+	$config = [
+		'allowed_types'		=> 'jpg|png|jpeg',
+		'upload_path'		=> './assets/img/uploaded/gallerys',
+		'max_size'			=> 2098
+	];
+	ci()->load->library('upload', $config);
+
+	if (!ci()->upload->do_upload('img_gallery')) {
+		$errors = ['error' => ci()->upload->display_errors()];
+		var_dump($errors);
+		ci()->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Failed!</strong> Images not to Insert , try again<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+		redirect('development/project_web_devs_app');
+	} else {
+		$img = ci()->upload->data();
+		$img = $img['file_name'];
+	}
+	return $img;
+}
+
+function _updateGalleryImg()
+{
+	$url = ci()->uri->segment(3);
+	$file_ = ci()->db->get_where('gallerys', ['id' => $url])->row_array();
+	$old_file = $file_['img_gallery'];
+
+	$config = [
+		'allowed_types'		=> 'png|jpg|jpeg',
+		'upload_path'		=> './assets/img/uploaded/gallerys/',
+		'max_size'			=> 2098
+	];
+	ci()->load->library('upload', $config);
+
+	if (!empty(FCPATH . '/assets/img/uploaded/' . $old_file)) {
+		if (ci()->upload->do_upload('img_gallery')) {
+			unlink(FCPATH . '/assets/img/uploaded/gallerys/' . $old_file);
+			$update_ = ci()->upload->data();
+			$updated = $update_['file_name'];
+		} else {
+			$updated = $old_file;
+		}
+	} else {
+		$update_ = ci()->upload->data();
+		$updated = $update_['file_name'];
+	}
+
+	return $updated;
+}
+
+function d_GalleryImg()
+{
+	$th_id = ci()->uri->segment(3);
+	$Gallery = ci()->db->get_where('gallerys', ['id' => $th_id])->row_array();
+	$Gallery_f = $Gallery['img_gallery'];
+	unlink(FCPATH . '/assets/img/uploaded/gallerys/' . $Gallery_f);
+}

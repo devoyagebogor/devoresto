@@ -158,4 +158,42 @@ class Devweb_model extends CI_Model
 		d_packagesImg();
 		return $this->db->delete('packages', ['id' => $id_D]);
 	}
+
+	public function add_apps_for_gallerys()
+	{
+		$data = [
+			'title_gallery'		=> $this->input->post('title_gallery', true),
+			'caption_gallery'	=> $this->input->post('caption_gallery', true),
+			'img_gallery'		=> _galleryImg()
+		];
+		$this->db->insert('gallerys', $data);
+	}
+
+	public function get_GalleryById($id)
+	{
+		return $this->db->get_where('gallerys', ['id' => $id])->row_array();
+	}
+
+	public function update_this_gallery($id)
+	{
+		$ids = $this->get_GalleryById($id)['id'];
+		$data = [
+			'title_gallery'		=> $this->input->post('title_gallery', true),
+			'caption_gallery'	=> $this->input->post('caption_gallery', true),
+			'img_gallery'		=> _updateGalleryImg()
+		];
+		return $this->db->update('gallerys', $data, ['id' => $id]);
+	}
+
+	public function show_gallerys()
+	{
+		return $this->db->get('gallerys')->result_array();
+	}
+
+	public function d_DGallery($id)
+	{
+		$id = $this->get_GalleryById($id)['id'];
+		d_GalleryImg();
+		return $this->db->delete('gallerys', ['id' => $id]);
+	}
 }

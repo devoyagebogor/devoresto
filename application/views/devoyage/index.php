@@ -71,7 +71,7 @@
                             <img src="<?= base_url('assets/img/uploaded/gallerys/' . $gallery->img_gallery); ?>" class="responsive-img">
                             <div class="gallery-overlay">
                                 <div>
-                                    <h3><?= $gallery->title_gallery; ?></h3>
+                                    <h5><?= $gallery->title_gallery; ?></h5>
                                     <h6><?= $gallery->caption_gallery; ?></h6>
                                 </div>
                             </div>

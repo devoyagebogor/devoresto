@@ -209,11 +209,11 @@ class Development extends CI_Controller
 		redirect('development/project_web_devs_packages');
 	}
 
-	// Set Up Gallery's
-	public function dev_gallery()
+	# Add Gallery's
+	public function dev_Gallery()
 	{
 		_in_System();
-		// cek_add_product_promo();
+		cek_add_product_gallerys();
 		if ($this->form_validation->run() == FALSE) {
 			$data['title'] = 'Web Application';
 			$this->load->view('templates/app/header_app', $data);
@@ -222,9 +222,47 @@ class Development extends CI_Controller
 			$this->load->view('templates/app/footer_app');
 		} else {
 
-			// $this->devweb->add_apps_for_promo();
+			$this->devweb->add_apps_for_gallerys();
 			$this->session->set_flashdata('dev', '<div class="alert alert-success alert-dismissible fade show" role="alert"> <strong>Add New Promo Success!</strong> You Can Show This Promo From the Landing Web Page. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
-			redirect('development/project_web_devs_review');
+			redirect('development/project_web_devs_gallery');
 		}
+	}
+
+	# Set Up Gallery
+	public function project_web_devs_gallery()
+	{
+		_in_System();
+		$data['title'] = 'Review Project';
+		$data['gallerys'] = $this->devweb->show_gallerys();
+		$this->load->view('templates/app/header_app', $data);
+		$this->load->view('templates/app/sidebar_app');
+		$this->load->view('development/r_gallerys', $data);
+		$this->load->view('templates/app/footer_app');
+	}
+
+	public function projcet_update_gallery($id)
+	{
+		_in_System();
+		cek_add_product_gallerys();
+		if ($this->form_validation->run() == FALSE) {
+			$data['title'] = 'Review Project';
+			$data['view_promo'] = $this->devweb->get_promoById($id);
+			$this->load->view('templates/app/header_app', $data);
+			$this->load->view('templates/app/sidebar_app');
+			$this->load->view('development/review', $data);
+			$this->load->view('templates/app/footer_app');
+		} else {
+			$this->devweb->update_this_gallery($id);
+			$this->session->set_flashdata('dev', '<div class="alert alert-warning alert-dismissible fade show" role="alert"> <strong>Update Promo Success!</strong> You Can Show This Promo From the Landing Web Page. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+			redirect('development/project_web_devs_gallery');
+		}
+	}
+
+	public function d_Dgallery($id)
+	{
+		_in_System();
+		$this->devweb->d_DGallery($id);
+		$this->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Delete Packages Success!</strong> You Can Add the new Package Again. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+		redirect('development/project_web_devs_gallery');
 	}
 }
