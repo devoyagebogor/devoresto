@@ -261,3 +261,31 @@ function d_GalleryImg()
 	$Gallery_f = $Gallery['img_gallery'];
 	unlink(FCPATH . '/assets/img/uploaded/gallerys/' . $Gallery_f);
 }
+
+function cek_add_product_games()
+{
+	ci()->form_validation->set_rules('title_games', 'Title Games', 'trim|required|max_length[25]');
+	ci()->form_validation->set_rules('caption_games', 'Caption Games', 'trim|required|max_length[50]');
+	ci()->form_validation->set_rules('text_games', 'Text Games', 'trim|required|max_length[100]');
+	ci()->form_validation->set_rules('price_games', 'Price Games', 'trim|required|max_length[50]');
+	ci()->form_validation->set_rules('periode_games', 'Periode Games', 'trim|required|max_length[50]');
+}
+
+function _gamesImg()
+{
+	$config = [
+		'allowed_types'		=> 'jpg|png|jpeg',
+		'upload_path'		=> './assets/img/uploaded/games',
+		'max_size'			=> 2098
+	];
+	ci()->load->library('upload', $config);
+
+	if (!ci()->upload->do_upload('img_games')) {
+		ci()->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Failed!</strong> Images not to Insert , try again<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+		redirect('development/project_web_devs_app');
+	} else {
+		$img = ci()->upload->data();
+		$img = $img['file_name'];
+	}
+	return $img;
+}

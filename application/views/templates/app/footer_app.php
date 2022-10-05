@@ -152,9 +152,8 @@
                 </div>
             </div>
         </div>
-        <!-- Modal Parallax & Games -->
-        <!-- Modal Games -->
-        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <!-- Modal Games Static -->
+        <div class="modal fade" id="staticBackdropGames" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-scrollable modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -162,32 +161,50 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Show a second modal and hide this one with the button below.
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Change Parallax ?</button>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <?= form_open_multipart('development/dev_Games'); ?>
+                                <div class="mb-3">
+                                    <label for="titleGames" class="form-label">Title Games</label>
+                                    <input type="text" class="form-control" id="titleGames" aria-describedby="gamesHelp" name="title_games">
+                                    <div id="gamesHelp" class="form-text">Title Games for Visitor know that.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="captionGames" class="form-label">Caption</label>
+                                    <input type="text" class="form-control" id="captionGames" name="caption_games">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="periodeGames" class="form-label">Periode</label>
+                                    <input type="text" class="form-control" id="periodeGames" name="periode_games">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="text_games" class="form-label">Text Games</label>
+                                    <input type="text" class="form-control" id="text_games" aria-describedby="textGamesHelp" name="text_games">
+                                    <div id="textGamesHelp" class="form-text">Use Text Promotion, to know this product.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="priceGames" class="form-label">Price</label>
+                                    <input type="text" class="form-control" id="priceGames" name="price_games">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="imageGames" class="form-label">Add Image</label>
+                                    <input type="file" class="form-control" id="imageGames" name="img_games">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="d-grid mb-3">
+                                    <button type="submit" class="btn btn-primary">Add Games</button>
+                                </div>
+                            </div>
+                            <?= form_close(); ?>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal Update Parallax -->
-        <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Update Parallax</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        Hide this modal and show the first with the button below.
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Add Games ?</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="<?= base_url('assets/'); ?>js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>

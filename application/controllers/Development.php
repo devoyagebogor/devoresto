@@ -267,4 +267,35 @@ class Development extends CI_Controller
 		$this->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Delete Packages Success!</strong> You Can Add the new Package Again. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
 		redirect('development/project_web_devs_gallery');
 	}
+
+	# Add Games & Spot
+	public function dev_Games()
+	{
+		_in_System();
+		cek_add_product_games();
+		if ($this->form_validation->run() == FALSE) {
+			$data['title'] = 'Web Application';
+			$this->load->view('templates/app/header_app', $data);
+			$this->load->view('templates/app/sidebar_app');
+			$this->load->view('development/app', $data);
+			$this->load->view('templates/app/footer_app');
+		} else {
+
+			$this->devweb->add_apps_for_games();
+			$this->session->set_flashdata('dev', '<div class="alert alert-success alert-dismissible fade show" role="alert"> <strong>Add New Promo Success!</strong> You Can Show This Promo From the Landing Web Page. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+			redirect('development/project_web_devs_games');
+		}
+	}
+
+	# Set Up Games
+	public function project_web_devs_games()
+	{
+		_in_System();
+		$data['title'] = 'Review Project';
+		$data['games'] = $this->devweb->show_Games();
+		$this->load->view('templates/app/header_app', $data);
+		$this->load->view('templates/app/sidebar_app');
+		$this->load->view('development/r_games', $data);
+		$this->load->view('templates/app/footer_app');
+	}
 }

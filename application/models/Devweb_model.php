@@ -194,4 +194,43 @@ class Devweb_model extends CI_Model
 		d_GalleryImg();
 		return $this->db->delete('gallerys', ['id' => $id]);
 	}
+
+	private function _setPost($name, $bool)
+	{
+		return $this->input->post($name, $bool);
+	}
+
+	private function _setData($t, $d)
+	{
+		return $this->db->insert($t, $d);
+	}
+
+	private function _getData($t)
+	{
+		return $this->db->get($t)->result_array();
+	}
+
+	private function _getDataById($x, $y, $z)
+	{
+		return $this->db->get_where($x, [$y => $z])->row_array();
+	}
+
+	public function add_apps_for_games()
+	{
+		$data = [
+			'img_games' 		=> _gamesImg(),
+			'title'				=> $this->_setPost('title_games', true),
+			'caption_games'		=> $this->_setPost('caption_games', true),
+			'text_games'		=> $this->_setPost('text_games', true),
+			'price'				=> $this->_setPost('price_games', true),
+			'periode'			=> $this->_setPost('periode_games', true),
+			'status'			=> 1
+		];
+		return $this->_setData('games', $data);
+	}
+
+	public function show_Games()
+	{
+		return $this->_getData('games');
+	}
 }
