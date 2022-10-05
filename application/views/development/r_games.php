@@ -81,7 +81,7 @@
                                                     <h5 class="card-header">Edit Game Devoyage</h5>
                                                     <div class="card-body">
                                                         <h5 class="card-title">Today is THe Best Day</h5>
-                                                        <?= form_open_multipart('development/projcet_update_game/' . $game['id']); ?>
+                                                        <?= form_open_multipart('development/projcet_update_games_orSpot/' . $game['id']); ?>
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="mb-3">

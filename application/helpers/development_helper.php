@@ -289,3 +289,11 @@ function _gamesImg()
 	}
 	return $img;
 }
+
+function d_GamesOrSpot()
+{
+	$id = ci()->uri->segment(3);
+	$_f = ci()->db->get_where('games', ['id' => $id])->row_array();
+	$f_ = $_f['img_games'];
+	unlink(FCPATH . '/assets/img/uploaded/games/' . $f_);
+}

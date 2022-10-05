@@ -210,7 +210,7 @@ class Devweb_model extends CI_Model
 		return $this->db->get($t)->result_array();
 	}
 
-	private function _getDataById($x, $y, $z)
+	private function _getDataByCondition($x, $y, $z)
 	{
 		return $this->db->get_where($x, [$y => $z])->row_array();
 	}
@@ -227,6 +227,13 @@ class Devweb_model extends CI_Model
 			'status'			=> 1
 		];
 		return $this->_setData('games', $data);
+	}
+
+	public function d_DGames($id)
+	{
+		$id = $this->_getDataByCondition('games', 'id', $id);
+		d_GamesOrSpot();
+		return $this->db->delete('games', $id);
 	}
 
 	public function show_Games()

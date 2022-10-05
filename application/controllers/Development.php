@@ -282,7 +282,7 @@ class Development extends CI_Controller
 		} else {
 
 			$this->devweb->add_apps_for_games();
-			$this->session->set_flashdata('dev', '<div class="alert alert-success alert-dismissible fade show" role="alert"> <strong>Add New Promo Success!</strong> You Can Show This Promo From the Landing Web Page. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+			$this->session->set_flashdata('dev', '<div class="alert alert-success alert-dismissible fade show" role="alert"> <strong>Add New Games / Spot Success!</strong> You Can Show This Games / Spot From the Landing Web Page. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
 			redirect('development/project_web_devs_games');
 		}
 	}
@@ -297,5 +297,20 @@ class Development extends CI_Controller
 		$this->load->view('templates/app/sidebar_app');
 		$this->load->view('development/r_games', $data);
 		$this->load->view('templates/app/footer_app');
+	}
+
+	# Delete Games / Spot
+	public function d_Dgame($id)
+	{
+		_in_System();
+		$this->devweb->d_DGames($id);
+		$this->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Delete Game / Spot Photo Success!</strong> You Can Add the new Game / Spot Photo Again. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+		redirect('development/project_web_devs_games');
+	}
+
+	# Update Games or Spot
+	public function projcet_update_games_orSpot()
+	{
+		// 
 	}
 }
