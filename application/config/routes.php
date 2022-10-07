@@ -51,4 +51,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 */
 $route['default_controller'] = 'devoyage';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = TRUE;
+
+// Register Development 
+$route['auth_reg_system/([a-z]+)/([a-z]+)'] = 'authdevs/auth_reg_system/$1/$2';

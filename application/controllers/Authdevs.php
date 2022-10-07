@@ -28,8 +28,10 @@ class Authdevs extends CI_Controller
         }
     }
 
-    public function auth_reg_system()
+    public function auth_reg_system($encrypt, $key)
     {
+        $encrypt = 'private_request_register';
+        $key = 'development';
         cek_reg_development();
         if ($this->form_validation->run() == FALSE) {
 

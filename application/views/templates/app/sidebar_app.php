@@ -65,14 +65,23 @@
                                     <a class="nav-link" href="#modalLogin">Login</a>
                                 </nav>
                             </div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
-                                Clients
+                        </nav>
+                    </div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseReview" aria-expanded="false" aria-controls="collapseReview">
+                        <div class="sb-nav-link-icon"><i class="bi bi-stars"></i></div>
+                        Feedback
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="collapseReview" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionReview">
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                Review
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
-                            <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                            <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionReview">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="<?= base_url('development/project_web_devs_testimonials'); ?>">Testimonials</a>
-                                    <a class="nav-link" href="<?= base_url('development/project_web_devs_collect_msg'); ?>">Message</a>
+                                    <a class="nav-link" href="#modalLogin"><i class="bi bi-emoji-laughing"></i>&nbsp;List Review</a>
+                                    <a class="nav-link" href="#modalLogin"><i class="bi bi-chat-dots"></i>&nbsp;Messages</a>
                                 </nav>
                             </div>
                         </nav>
@@ -81,7 +90,7 @@
 
                     <a class="nav-link" href="#modalLink">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        Tables
+                        Disabled
                     </a>
 
                     <div class="sb-sidenav-menu-heading">Sign Out</div>
