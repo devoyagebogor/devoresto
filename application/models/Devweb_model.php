@@ -240,4 +240,40 @@ class Devweb_model extends CI_Model
 	{
 		return $this->_getData('games');
 	}
+
+	public function get_idGames($id)
+	{
+		return $this->db->get_where('games', ['id' => $id])->row_array();
+	}
+
+	public function _updateGameOrSpot($id)
+	{
+		$id = $this->get_idGames($id)['id'];
+		$data = [
+			'img_games' 		=> _updateGamesSpot(),
+			'title'				=> $this->_setPost('title_games', true),
+			'caption_games'		=> $this->_setPost('caption_games', true),
+			'text_games'		=> $this->_setPost('text_games', true),
+			'price'				=> $this->_setPost('price_games', true),
+			'periode'			=> $this->_setPost('periode_games', true),
+		];
+		return $this->db->update('games', $data, ['id' => $id]);
+	}
+
+	public function get_idParallax($id)
+	{
+		return $this->db->get_where('parallax', ['id' => $id])->row_array();
+	}
+
+	public function get_file_Parallax()
+	{
+		return $this->db->get('parallax')->result_array();
+	}
+
+	public function update_this_parallax($id)
+	{
+		$fi_ = $this->get_idParallax($id)['id'];
+		$da_ = ['img_parallax' => _updateParallax()];
+		return $this->db->update('parallax', $da_, ['id' => $fi_]);
+	}
 }

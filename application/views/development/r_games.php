@@ -68,7 +68,7 @@
                                         </a>
                                     </td>
                                 </tr>
-                                <!-- Modal Gallery -->
+                                <!-- Modal Games -->
                                 <div class="modal fade" id="editThisGame<?= $game['id']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl modal-dialog-scrollable">
                                         <div class="modal-content">

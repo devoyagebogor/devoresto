@@ -211,14 +211,39 @@
         </div>
         <!-- Modal Update Parallax -->
         <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-dialog modal-dialog-centered modal-xl modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Update Parallax</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Hide this modal and show the first with the button below.
+                        <div class="card">
+                            <h5 class="card-header">New Image Parallax</h5>
+                            <div class="card-body">
+                                <h5 class="card-title">Today is The Best Day</h5>
+                                <?php foreach ($get_file_Parallax as $parallax) : ?>
+                                    <?= form_open_multipart('development/projcet_update_parallax/' . $parallax['id']); ?>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label for="parallax" class="form-label">New Image Parallax</label>
+                                                <input type="file" class="form-control" id="parallax" aria-describedby="imageParallax" name="images_parallax">
+                                                <div id="imageParallax" class="form-text text-danger">Image Parallax can not added more.</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9 gy-4">
+
+                                            <img src="<?= base_url('assets/img/uploaded/parallax/' . $parallax['img_parallax']); ?>" alt="" class="w-75 d-block mx-auto img-thumbnail">
+                                        <?php endforeach; ?>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button type="submit" class="btn btn-primary">Change Image Parallax</button>
+                                        </div>
+                                    </div>
+                                    <?= form_close(); ?>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Add Games ?</button>

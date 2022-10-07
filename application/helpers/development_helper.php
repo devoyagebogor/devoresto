@@ -297,3 +297,61 @@ function d_GamesOrSpot()
 	$f_ = $_f['img_games'];
 	unlink(FCPATH . '/assets/img/uploaded/games/' . $f_);
 }
+
+function _updateGamesSpot()
+{
+	$id = ci()->uri->segment(3);
+	$f_ = ci()->db->get_where('games', ['id' => $id])->row_array();
+	$_f = $f_['img_games'];
+
+	$config = [
+		'allowed_types'		=> 'png|jpg|jpeg',
+		'upload_path'		=> './assets/img/uploaded/games/',
+		'max_size'			=> 2098
+	];
+	ci()->load->library('upload', $config);
+
+	if (!empty(FCPATH . '/assets/img/uploaded/games/' . $_f)) {
+		if (ci()->upload->do_upload('img_images')) {
+			unlink(FCPATH . '/assets/img/uploaded/games/' . $_f);
+			$update_ = ci()->upload->data();
+			$updated = $update_['file_name'];
+		} else {
+			$updated = $_f;
+		}
+	} else {
+		$update_ = ci()->upload->data();
+		$updated = $update_['file_name'];
+	}
+
+	return $updated;
+}
+
+function _updateParallax()
+{
+	$id = ci()->uri->segment(3);
+	$f_ = ci()->db->get_where('parallax', ['id' => $id])->row_array();
+	$_f = $f_['img_parallax'];
+
+	$config = [
+		'allowed_types'		=> 'png|jpg|jpeg',
+		'upload_path'		=> './assets/img/uploaded/parallax/',
+		'max_size'			=> 2098
+	];
+	ci()->load->library('upload', $config);
+
+	if (!empty(FCPATH . '/assets/img/uploaded/parallax/' . $_f)) {
+		if (ci()->upload->do_upload('images_parallax')) {
+			unlink(FCPATH . '/assets/img/uploaded/parallax/' . $_f);
+			$update_ = ci()->upload->data();
+			$updated = $update_['file_name'];
+		} else {
+			$updated = $_f;
+		}
+	} else {
+		$update_ = ci()->upload->data();
+		$updated = $update_['file_name'];
+	}
+
+	return $updated;
+}

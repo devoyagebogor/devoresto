@@ -26,6 +26,7 @@ class Development extends CI_Controller
 	{
 		_in_System();
 		$data['title'] = 'Web Application';
+		$data['get_file_Parallax'] = $this->devweb->get_file_Parallax();
 		$this->load->view('templates/app/header_app', $data);
 		$this->load->view('templates/app/sidebar_app');
 		$this->load->view('development/app', $data);
@@ -309,8 +310,30 @@ class Development extends CI_Controller
 	}
 
 	# Update Games or Spot
-	public function projcet_update_games_orSpot()
+	public function projcet_update_games_orSpot($id)
 	{
-		// 
+		_in_System();
+		cek_add_product_games();
+		if ($this->form_validation->run() == FALSE) {
+			$data['title'] = 'Review Project';
+			$data['games'] = $this->devweb->get_idGames($id);
+			$data['get_file_Parallax'] = $this->devweb->get_file_Parallax();
+			$this->load->view('templates/app/header_app', $data);
+			$this->load->view('templates/app/sidebar_app');
+			$this->load->view('development/r_games', $data);
+			$this->load->view('templates/app/footer_app');
+		} else {
+			$this->devweb->_updateGameOrSpot($id);
+			$this->session->set_flashdata('dev', '<div class="alert alert-warning alert-dismissible fade show" role="alert"> <strong>Update Games Success!</strong> You Can Show This Games / Spot From the Landing Web Page. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+			redirect('development/project_web_devs_games');
+		}
+	}
+
+	public function projcet_update_parallax($id)
+	{
+		_in_System();
+		$this->devweb->update_this_parallax($id);
+		$this->session->set_flashdata('dev', '<div class="alert alert-warning alert-dismissible fade show" role="alert"> <strong>Update Parallax Success!</strong> You Can Show This Parallax From the Landing Web Page. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+		redirect('development/project_web_devs_app');
 	}
 }
