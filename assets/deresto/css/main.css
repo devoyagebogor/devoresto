@@ -1,0 +1,52 @@
+* {
+    box-sizing: content-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    color: #fff !important;
+}
+
+a blockquote {
+    color: #fff !important;
+}
+
+body {
+    background: linear-gradient(#6B591D, #233714);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#logo-container img {
+    border-radius: 100%;
+    max-width: 55px;
+    margin-top: 8%;
+}
+
+.parallax img {
+    margin-bottom: 5%;
+}
+
+.parallax-container {
+    max-height: 70% !important;
+}
+
+.hide-on-med-and-down li a {
+    color: white;
+    font-weight: 700;
+    text-shadow: 1px 1px rgba(170, 40, 40, 0.445);
+}
+
+.container .bg-head {
+    background: linear-gradient(rgba(11, 85, 3, 0.5), rgba(0, 0, 35, 0.2));
+    max-width: 70%;
+    border-radius: 5px;
+}
+
+.container .bg-head:hover {
+    background: linear-gradient(rgba(9, 75, 10, 0.3), rgba(0, 74, 21, 0.7));
+}
+
+.slider .slides li img {}
