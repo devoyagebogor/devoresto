@@ -39,7 +39,7 @@ class Deresto extends CI_Controller
     {
         $data['title'] = 'Deresto Coffe & Kitchen | Collections';
         $this->load->view('templates/deresto/header', $data);
-        $this->load->view('deresto/menu_list', $data);
+        $this->load->view('deresto/gallery', $data);
         $this->load->view('templates/deresto/footer');
     }
 }

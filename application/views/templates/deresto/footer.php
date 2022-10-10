@@ -20,12 +20,12 @@
     $(document).ready(function() {
         $('.slider').slider({
             indicators: false,
-            height: 700,
+            height: 900,
             transition: 700,
             duration: 800,
             interval: 4000
         });
-    })
+    });
 </script>
 </body>
 

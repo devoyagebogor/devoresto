@@ -11,4 +11,5 @@
     <link href="<?= base_url('assets/deresto/'); ?>css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="<?= base_url('assets/deresto/'); ?>css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="<?= base_url('assets/deresto/'); ?>css/main.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="<?= base_url('assets/deresto/'); ?>css/bs.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>

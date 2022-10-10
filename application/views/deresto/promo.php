@@ -42,64 +42,61 @@
 
             </div>
         </div>
-        <div class="parallax"><img src="<?= base_url('assets/deresto/img/uploaded/background/2-min.jpg'); ?>" alt="Unsplashed background img 1" class="responsive-img"></div>
+        <div class="parallax"><img src="<?= base_url('assets/deresto/img/uploaded/background/IMG_7761-min.jpg'); ?>" alt="Unsplashed background img 1" class="responsive-img"></div>
     </div>
 
     <div class="container">
-        <div class="section">
-            <div class="row">
-                <div class="col s12 m6">
-                    <div class="icon-block">
-                        <h2 class="center white-text"><i class="material-icons">add_a_photo</i></h2>
-                        <h5 class="center white-text">Instagramable</h5>
-
-                        <p class="light white-text">Tempat yang Instagramable. Menyediakan Tempat Gathering. Indoor dan Outdoor. Cocok banget buat kamu yang suka nongki bersama rekan kerja atau teman / kerabat. 🤩</p>
+        <div class="row">
+            <div class="col s12 center white-text">
+                <blockquote>
+                    <h3 class="light">Promo Deresto Coffee & Kitchen</h3>
+                </blockquote>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m6 s12">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="<?= base_url('assets/deresto/img/uploaded/promo/a.jpg'); ?>">
+                        <span class="card-title">Card Title</span>
                     </div>
-                </div>
-
-                <div class="col s12 m6">
-                    <div class="icon-block">
-                        <h2 class="center white-text"><i class="material-icons">local_dining</i></h2>
-                        <h5 class="center white-text">Foodies</h5>
-
-                        <p class="light white-text">Menyediakan Beragam menu makanan anti mainstream. enak dirasa. bikin ketagihan. buat kamu ingin mencari menu makanan terbaik, cuman tersedia di Deresto Coffee & Kitchen. 😁🥰</p>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
                     </div>
-                </div>
-
-                <div class="col s12 m6">
-                    <div class="icon-block">
-                        <h2 class="center white-text"><i class="material-icons">attach_money</i></h2>
-                        <h5 class="center white-text">Cashback</h5>
-
-                        <p class="light white-text">Setiap kamu membeli produk di Deresto, Kamu bisa mendapatkan Cashback Lho, Cashback ini bisa kamu tukarkan pada Ticketing Devoyage gratis😁😘.
-                            Menikmati makanan - minuman yang enak dan ketagihan, kamu juga bisa langsung menikmati sensasi liburan di Devoyage.🤩
-                        </p>
-                    </div>
-                </div>
-                <div class="col s12 m6 white-text">
-                    <div class="icon-block">
-                        <h2 class="center white-text"><i class="material-icons">local_cafe</i></h2>
-                        <h5 class="center">The Best Cafe</h5>
-
-                        <p class="light">Menikmati hidangan Coffee Original yang khas.😘
-                            dengan rasa yang dalam serta harum. melekat di dada.😋 Ayo buruan cobain.
-                        </p>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
                     </div>
                 </div>
             </div>
-
+            <div class="col m6 s12">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="<?= base_url('assets/deresto/img/uploaded/promo/b.jpg'); ?>">
+                        <span class="card-title">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">This is a link</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 
     <div class="parallax-container valign-wrapper">
         <div class="section no-pad-bot">
             <div class="container">
                 <div class="row center bg-head">
-                    <h5 class="header col s12 light">Nuansa Romantic di Deresto Coffee & Kitchen</h5>
+                    <h5 class="header col s12 light">Modern Places. Meeting & Gathering</h5>
                 </div>
             </div>
         </div>
-        <div class="parallax"><img src="<?= base_url('assets/deresto/img/uploaded/background/12.jpg'); ?>" alt="Unsplashed background img 2" class="responsive-img"></div>
+        <div class="parallax"><img src="<?= base_url('assets/deresto/img/uploaded/background/IMG_7757-min.jpg'); ?>" alt="Unsplashed background img 3" class="responsive-img"></div>
     </div>
 
     <div class="container" id="about">
@@ -121,18 +118,6 @@
             </div>
 
         </div>
-    </div>
-
-
-    <div class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-            <div class="container">
-                <div class="row center bg-head">
-                    <h5 class="header col s12 light">Modern Places. Meeting & Gathering</h5>
-                </div>
-            </div>
-        </div>
-        <div class="parallax"><img src="<?= base_url('assets/deresto/img/uploaded/background/IMG_7757-min.jpg'); ?>" alt="Unsplashed background img 3" class="responsive-img"></div>
     </div>
 
     <footer class="page-footer teal darken-3" id="contact">
