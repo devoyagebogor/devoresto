@@ -13,19 +13,18 @@
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
-
-                <ul id="nav-mobile" class="sidenav grey darken-4">
-                    <li><a href="<?php echo base_url('deresto'); ?>">Home</a></li>
-                    <li><a href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
-                    <li><a href="<?php echo base_url('deresto/list_menu'); ?>">Menu</a></li>
-                    <li><a href="<?php echo base_url('deresto/collections'); ?>">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
         </nav>
     </div>
+    <ul id="nav-mobile" class="sidenav grey darken-4">
+        <li><a href="<?php echo base_url('deresto'); ?>">Home</a></li>
+        <li><a href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
+        <li><a href="<?php echo base_url('deresto/list_menu'); ?>">Menu</a></li>
+        <li><a href="<?php echo base_url('deresto/collections'); ?>">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
 
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
@@ -54,33 +53,27 @@
             </div>
         </div>
         <div class="row">
-            <div class="col m12">
-                <div class="card horizontal">
+            <div class="col s12 m6 l6">
+                <div class="card">
                     <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/gallery/IMG_4264-min.JPG'); ?>">
+                        <img src="<?= base_url('assets/deresto/img/uploaded/gallery/IMG_7523-min.JPG'); ?>" class="responsive-img">
+                        <span class="card-title">Card Title</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                     </div>
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                     </div>
                 </div>
             </div>
-            <div class="col m12">
-                <div class="card horizontal">
+            <div class="col s12 m6 l6">
+                <div class="card">
                     <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/gallery/IMG_7523-min.JPG'); ?>">
+                        <img src="<?= base_url('assets/deresto/img/uploaded/gallery/IMG_7523-min.JPG'); ?>" class="responsive-img">
+                        <span class="card-title">Card Title</span>
+                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
                     </div>
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">This is a link</a>
-                        </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
                     </div>
                 </div>
             </div>

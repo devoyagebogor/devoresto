@@ -13,19 +13,18 @@
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
-
-                <ul id="nav-mobile" class="sidenav grey darken-4">
-                    <li><a href="<?php echo base_url('deresto'); ?>">Home</a></li>
-                    <li><a href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
-                    <li><a href="<?php echo base_url('deresto/list_menu'); ?>">Menu</a></li>
-                    <li><a href="<?php echo base_url('deresto/collections'); ?>">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
         </nav>
     </div>
+    <ul id="nav-mobile" class="sidenav grey darken-4">
+        <li><a href="<?php echo base_url('deresto'); ?>">Home</a></li>
+        <li><a href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
+        <li><a href="<?php echo base_url('deresto/list_menu'); ?>">Menu</a></li>
+        <li><a href="<?php echo base_url('deresto/collections'); ?>">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
 
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">

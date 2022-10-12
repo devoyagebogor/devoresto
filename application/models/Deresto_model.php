@@ -6,13 +6,19 @@ class Deresto_model extends CI_Model
     public function __construct()
     {
         parent::__construct();
+        $this->load->helper('deresto_helper');
     }
 
     // Variables
 
-    private function _setDataPost($name, $con)
+    private function _dataPost($name, $con)
     {
         return $this->input->post($name, $con);
+    }
+
+    private function _setData($x, $y)
+    {
+        return $this->db->insert($x, $y);
     }
 
     private function _getData($_t)
@@ -26,4 +32,34 @@ class Deresto_model extends CI_Model
     }
 
     // Projcets
+    public function get_Types()
+    {
+        return $this->_getData('type_menu');
+    }
+
+    public function add_ImgPromoOrMenu()
+    {
+        $data = [
+            'menu_type' => $this->_dataPost('selectType', TRUE),
+            'title'     => $this->_dataPost('titles', TRUE),
+            'caption'   => $this->_dataPost('captions', TRUE),
+            'img'       => _imgPromoOrMenu(),
+            'date'      => time()
+        ];
+        return $this->_setData('menu_deresto', $data);
+    }
+
+    public function add_NewTypes()
+    {
+        $data = ['menu_type' => $this->_dataPost('newType', TRUE)];
+        return $this->_setData('type_menu', $data);
+    }
+
+    public function _notAllowedDeletePromo()
+    {
+        $not = $this->_getData('type_menu')['menu_type'];
+        if ($not['Promo']) {
+            // not allowed delete type menu PROMO.
+        }
+    }
 }

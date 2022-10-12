@@ -13,19 +13,18 @@
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
-
-                <ul id="nav-mobile" class="sidenav grey darken-4">
-                    <li><a href="<?php echo base_url('deresto'); ?>">Home</a></li>
-                    <li><a href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
-                    <li><a href="<?php echo base_url('deresto/list_menu'); ?>">Menu</a></li>
-                    <li><a href="<?php echo base_url('deresto/collections'); ?>">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
         </nav>
     </div>
+    <ul id="nav-mobile" class="sidenav grey darken-4">
+        <li><a href="<?php echo base_url('deresto'); ?>">Home</a></li>
+        <li><a href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
+        <li><a href="<?php echo base_url('deresto/list_menu'); ?>">Menu</a></li>
+        <li><a href="<?php echo base_url('deresto/collections'); ?>">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
 
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
@@ -54,36 +53,22 @@
             </div>
         </div>
         <div class="row">
-            <div class="col m6 s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/promo/a.jpg'); ?>">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col m6 s12">
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/promo/b.jpg'); ?>">
-                        <span class="card-title">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">This is a link</a>
+            <?php foreach ($get_promo as $promo) : ?>
+                <div class="col m6 s12">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="<?= base_url('assets/deresto/img/uploaded/menu_promo/' . $promo->img); ?>">
+                            <span class="card-title"><?= $promo->title; ?></span>
+                        </div>
+                        <div class="card-content">
+                            <p><?= $promo->caption; ?></p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">This is a link</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
         </div>
     </div>
 

@@ -13,19 +13,18 @@
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
-
-                <ul id="nav-mobile" class="sidenav grey darken-4">
-                    <li><a href="<?php echo base_url('deresto'); ?>">Home</a></li>
-                    <li><a href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
-                    <li><a href="<?php echo base_url('deresto/list_menu'); ?>">Menu</a></li>
-                    <li><a href="<?php echo base_url('deresto/collections'); ?>">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#about">About</a></li>
-                </ul>
                 <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             </div>
         </nav>
     </div>
+    <ul id="nav-mobile" class="sidenav grey darken-4">
+        <li><a href="<?php echo base_url('deresto'); ?>">Home</a></li>
+        <li><a href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
+        <li><a href="<?php echo base_url('deresto/list_menu'); ?>">Menu</a></li>
+        <li><a href="<?php echo base_url('deresto/collections'); ?>">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
 
     <div id="index-banner" class="parallax-container">
         <div class="section no-pad-bot">
@@ -46,211 +45,38 @@
     </div>
 
     <div class="container">
+        <!-- HEADER -->
         <div class="row">
+
             <div class="col s12 center white-text">
                 <blockquote>
                     <h4 class="light">Mainstay Food Lists in Deresto Coffee & Kitchen</h4>
                 </blockquote>
             </div>
         </div>
+        <div class="divider"></div>
         <!-- Hot Menu -->
         <div class="row">
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Favorite Mainstay Menu</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/deresto 3 menu baru.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Favorite Mainstay Menu</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/deresto 3 menu baru.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
+            <?php foreach ($menus as $menu) : ?>
+                <div class="col l6 m4 s12">
+                    <blockquote>
+                        <h5 class="light white-text"><?= $menu->menu_type; ?></h5>
+                    </blockquote>
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="<?= base_url('assets/deresto/img/uploaded/menu_promo/' . $menu->img); ?>" class="responsive-img">
+                            <h4 class="card-title"><?= $menu->title; ?></h4>
+                            <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
+                        </div>
+                        <div class="card-content">
+                            <p><?= $menu->caption; ?></p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php endforeach; ?>
         </div>
-        <!-- Pizza -->
-        <div class="row">
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Pizza & Burger</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/Deresto 1q.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Pizza & Burger</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/Deresto 2.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Pasta -->
-        <div class="row">
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Pasta & Noodles</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/deresto 5 menu baru.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Pasta & Noodles</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/Deresto 11.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Iced Special Coffee -->
-        <div class="row">
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Iced Special Coffee</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/deresto 5 menu baru.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Iced Special Coffee</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/Deresto 11.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Iced Coffee -->
-        <div class="row">
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Iced Coffee</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/deresto 5 menu baru.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Iced Coffee</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/Deresto 11.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Moctail -->
-        <div class="row">
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Moctail</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/deresto 5 menu baru.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col l6 m4 s12">
-                <blockquote>
-                    <h5 class="light white-text">Moctail</h5>
-                </blockquote>
-                <div class="card">
-                    <div class="card-image">
-                        <img src="<?= base_url('assets/deresto/img/uploaded/menu/Deresto 11.jpg'); ?>" class="responsive-img">
-                        <span class="card-title">Pizza Tianosca</span>
-                        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Lorem ipsum dolor sit amet.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="divider"></div>
+
     </div>
 
 

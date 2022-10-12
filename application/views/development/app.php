@@ -50,38 +50,9 @@
                                </div>
                            </div>
                        </div>
+                       <div class="dropdown-divider"></div>
                    </div>
 
-                   <div class="row">
-                       <div class="col-xl-6">
-                           <div class="card mb-4">
-                               <div class="card-header">
-                                   <i class="bi bi-gear-wide-connected"></i>
-                                   Services & Facilities
-                               </div>
-                               <div class="card-body">
-                                   <div class="btn-group d-flex gap-md-2">
-                                       <a href="#" class="btn btn-primary">Services +</a>
-                                       <a href="#" class="btn btn-success">Facilities +</a>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                       <div class="col-xl-6">
-                           <div class="card mb-4">
-                               <div class="card-header">
-                                   <i class="bi bi-people-fill"></i>
-                                   Author
-                               </div>
-                               <div class="card-body">
-                                   <div class="btn-group d-flex gap-md-2">
-                                       <a href="#" class="btn btn-warning">Contact +</a>
-                                       <a href="#" class="btn btn-secondary">Address +</a>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                   </div>
 
                </div>
            </main>

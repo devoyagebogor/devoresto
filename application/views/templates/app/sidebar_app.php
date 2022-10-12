@@ -62,7 +62,7 @@
                             </a>
                             <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#modalLogin">Login</a>
+                                    <a class="nav-link" href="<?= base_url('appsresto/deresto_web_devs_app'); ?>">Get Tools</a>
                                 </nav>
                             </div>
                         </nav>

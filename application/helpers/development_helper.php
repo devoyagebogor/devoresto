@@ -150,9 +150,6 @@ function _packagesImg()
 
 	if (!ci()->upload->do_upload('img_package')) {
 		ci()->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Failed!</strong> Images not to Insert, try again<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
-		$errors = ['error' => ci()->upload->display_errors()];
-		var_dump($errors);
-		die;
 		redirect('development/project_web_devs_app');
 	} else {
 		$img = ci()->upload->data();
