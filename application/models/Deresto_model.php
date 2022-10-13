@@ -55,6 +55,22 @@ class Deresto_model extends CI_Model
         return $this->_setData('type_menu', $data);
     }
 
+    public function add_NewGallery()
+    {
+        $data = [
+            'title'     => $this->_dataPost('title_img', TRUE),
+            'caption'   => $this->_dataPost('caption_img', TRUE),
+            'img'       => _imgDeresto(),
+            'date'      => time()
+        ];
+        return $this->_setData('gallery_deresto', $data);
+    }
+
+    public function getf_parallax()
+    {
+        return $this->_getData('ss');
+    }
+
     public function _notAllowedDeletePromo()
     {
         $not = $this->_getData('type_menu')['menu_type'];

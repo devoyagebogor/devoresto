@@ -161,21 +161,22 @@
                             <h5 class="card-header">New Image for Deresto</h5>
                             <div class="card-body">
                                 <h5 class="card-title">Today is The Best Day</h5>
-                                <?= form_open_multipart(); ?>
+                                <?= form_open_multipart('appsresto/deresto_web_devs_gallery'); ?>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                    <label for="titleGallery" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="titleGallery" aria-describedby="titleHelp" name="title_img">
+                                    <div id="titleHelp" class="form-text">To Expressions for the moment.</div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="exampleInputPassword1">
+                                    <label for="caption_img" class="form-label">Caption</label>
+                                    <input type="text" class="form-control" id="caption_img" name="caption_img">
                                 </div>
-                                <div class="mb-3 form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                <div class="mb-3">
+                                    <label for="img_" class="form-label">Insert Image</label>
+                                    <input type="file" class="form-control" id="img_" name="img_">
+                                    <div id="img_help" class="form-text">~ @2MB | w-1500px & h-1000px</div>
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Upload</button>
                                 <?= form_close(); ?>
                             </div>
                         </div>
@@ -183,8 +184,7 @@
                     <div class="col-md-7 col-sm-12">
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                Tools for Update the Parallax
+                                <h4>List Parallax</h4>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -209,11 +209,14 @@
                                     <tbody>
                                         <tr>
                                             <th>1</th>
-                                            <td>...</td>
+                                            <td><img src="<?= base_url('assets/deresto/img/uploaded/background/2-min.jpg'); ?>" alt="img" class="w-50 img-responsive img-thumbnail d-block mx-auto"></td>
                                             <td>Home</td>
                                             <td>Header</td>
                                             <th>
-                                                <a href="" class="">Edit</a>
+                                                <div class="btn-group-vertical d-grid gap-3">
+                                                    <a href="#" class="btn btn-warning"><i class="bi bi-pencil-fill"></i></i></a>
+                                                    <a href="#" class="btn btn-danger"><i class="bi bi-trash3"></i></a>
+                                                </div>
                                             </th>
                                         </tr>
 

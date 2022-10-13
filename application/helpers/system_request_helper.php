@@ -63,7 +63,7 @@ function _in_System()
 {
     if (!xs()->session->userdata('id')) {
         xs()->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Limited Access!</strong> Only Authorized Operators<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
-        redirect('development');
+        redirect('devoyage');
     } else {
         return true;
     }

@@ -2,7 +2,7 @@
     <div class="navbar-fixed">
         <nav class="grey darken-4" role="navigation">
             <div class="nav-wrapper container">
-                <a id="logo-container" href="#" class="brand-logo">
+                <a id="logo-container" href="<?php echo base_url('deresto'); ?>" class="brand-logo">
                     <img src="<?= base_url('assets/deresto/img/logo/logo.jpg') ?>" alt="">
                 </a>
                 <ul class="right hide-on-med-and-down">
@@ -10,6 +10,7 @@
                     <li><a href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
                     <li><a href="<?php echo base_url('deresto/list_menu'); ?>">Menu</a></li>
                     <li><a href="<?php echo base_url('deresto/collections'); ?>">Gallery</a></li>
+                    <li><a href="<?php echo base_url('devoyage'); ?>">Devoyage</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#about">About</a></li>
                 </ul>
@@ -22,6 +23,7 @@
         <li><a href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
         <li><a href="<?php echo base_url('deresto/list_menu'); ?>">Menu</a></li>
         <li><a href="<?php echo base_url('deresto/collections'); ?>">Gallery</a></li>
+        <li><a href="<?php echo base_url('devoyage'); ?>">Devoyage</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="#about">About</a></li>
     </ul>
@@ -35,13 +37,15 @@
                 </div>
                 <div class="row center">
                     <div class="col s12">
-                        <a href="#" id="download-button" class="btn waves-effect waves-light light-green darken-4">Get Promo</a>
+                        <a href="<?php echo base_url('deresto/list_menu'); ?>" id="download-button" class="btn waves-effect waves-light light-green darken-4">Menu List</a>
                     </div>
                 </div>
 
             </div>
         </div>
-        <div class="parallax"><img src="<?= base_url('assets/deresto/img/uploaded/background/IMG_7761-min.jpg'); ?>" alt="Unsplashed background img 1" class="responsive-img"></div>
+        <?php foreach ($promos as $promo) : ?>
+            <div class="parallax"><img src="<?= base_url('assets/deresto/img/uploaded/background/' . $promo->img); ?>" alt="Unsplashed background img 1" class="responsive-img"></div>
+        <?php endforeach; ?>
     </div>
 
     <div class="container">
@@ -52,6 +56,7 @@
                 </blockquote>
             </div>
         </div>
+        <div class="divider"></div>
         <div class="row">
             <?php foreach ($get_promo as $promo) : ?>
                 <div class="col m6 s12">
@@ -68,6 +73,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="divider"></div>
             <?php endforeach; ?>
         </div>
     </div>
@@ -81,7 +87,9 @@
                 </div>
             </div>
         </div>
-        <div class="parallax"><img src="<?= base_url('assets/deresto/img/uploaded/background/IMG_7757-min.jpg'); ?>" alt="Unsplashed background img 3" class="responsive-img"></div>
+        <?php foreach ($footers as $footer) : ?>
+            <div class="parallax"><img src="<?= base_url('assets/deresto/img/uploaded/background/' . $footer->img); ?>" alt="Unsplashed background img 3" class="responsive-img"></div>
+        <?php endforeach; ?>
     </div>
 
     <div class="container" id="about">
@@ -124,19 +132,19 @@
                 <div class="col l3 s12">
                     <h5 class="white-text">General Links</h5>
                     <ul>
-                        <li><a class="white-text" href="#!">Promo</a></li>
-                        <li><a class="white-text" href="#!">Contact</a></li>
+                        <li><a class="white-text" href="<?php echo base_url('deresto/list_promo'); ?>">Promo</a></li>
+                        <li><a class="white-text" href="https://wa.link/jk98mo" target="_blank">Contact</a></li>
                     </ul>
                     <div class="divider"></div>
-                    <blockquote><a href="">WhatsApp</a></blockquote>
-                    <blockquote><a href="">Customer Service</a></blockquote>
+                    <blockquote><a href="https://wa.link/jk98mo" target="_blank">WhatsApp</a></blockquote>
+                    <blockquote><a href="https://wa.link/jk98mo" target="_blank">Customer Service</a></blockquote>
                 </div>
                 <div class="col l3 s12">
                     <h5 class="white-text">Patners</h5>
                     <ul>
-                        <li><a class="white-text" href="#!">Devoyage Bogor</a></li>
-                        <li><a class="white-text" href="#!">Rumah Air Bogor</a></li>
-                        <li><a class="white-text" href="#!">Water Kingdom</a></li>
+                        <li><a class="white-text" href="<?php echo base_url('devoyage'); ?>" target="_blank">Devoyage Bogor</a></li>
+                        <li><a class="white-text" href="https://rumahairbogor.net" target="_blank">Rumah Air Bogor</a></li>
+                        <li><a class="white-text" href="https://www.instagram.com/mywaterkingdom/" target="_blank">Water Kingdom</a></li>
                     </ul>
                 </div>
             </div>

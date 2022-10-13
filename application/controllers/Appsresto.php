@@ -12,6 +12,7 @@ class Appsresto extends CI_Controller
         $this->load->helper('development_helper');
         $this->load->helper('system_request_helper');
         $this->load->model('Deresto_model', 'deresto');
+        _in_System();
     }
 
     public function debug()
@@ -21,7 +22,6 @@ class Appsresto extends CI_Controller
 
     public function deresto_web_devs_app()
     {
-        _in_System();
         $data['title'] = 'Devs Deresto';
         $data['types'] = $this->deresto->get_Types();
         _staticViews($data);
@@ -30,7 +30,6 @@ class Appsresto extends CI_Controller
     # Add New Promo or Menu
     public function deresto_web_devs_promoOrMenu()
     {
-        _in_System();
         _checkPromoOrMenu();
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Devs Deresto';
@@ -46,7 +45,6 @@ class Appsresto extends CI_Controller
     # Add New Type for Menu
     public function deresto_web_devs_types()
     {
-        _in_System();
         _checkTypes();
         if ($this->form_validation->run() == FALSE) {
             $data['title'] = 'Devs Deresto';
@@ -55,6 +53,21 @@ class Appsresto extends CI_Controller
             _dataErrors();
         } else {
             $this->deresto->add_NewTypes();
+            _dataSuccess();
+        }
+    }
+
+    # Add Mew Image
+    public function deresto_web_devs_gallery()
+    {
+        _checkGallery();
+        if ($this->form_validation->run() == FALSE) {
+            $data['title'] = 'Devs Deresto';
+            $data['types'] = $this->deresto->get_Types();
+            _staticViews($data);
+            _dataErrors();
+        } else {
+            $this->deresto->add_NewGallery();
             _dataSuccess();
         }
     }

@@ -23,6 +23,30 @@ function _imgPromoOrMenu()
     return $img;
 }
 
+function _imgDeresto()
+{
+    $config = [
+        'allowed_types' => 'jpg|png|jpeg',
+        'upload_path'   => './assets/deresto/img/uploaded/gallery',
+        'max_size'      => 2098
+    ];
+    resto()->load->library('upload', $config);
+
+    if (!resto()->upload->do_upload('img_')) {
+        _dataErrors();
+    } else {
+        $img = resto()->upload->data();
+        $img = $img['file_name'];
+    }
+    return $img;
+}
+
+function _checkGallery()
+{
+    resto()->form_validation->set_rules('title_img', 'Title', 'required|max_length[100]');
+    resto()->form_validation->set_rules('caption_img', 'Caption', 'required|max_length[100]');
+}
+
 function _checkTypes()
 {
     resto()->form_validation->set_rules('newType', 'Type', 'required|max_length[50]');
