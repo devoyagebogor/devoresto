@@ -78,4 +78,29 @@ class Deresto_model extends CI_Model
             // not allowed delete type menu PROMO.
         }
     }
+
+    public function showProject_promoOrMenu()
+    {
+        $this->db->select('*');
+        $this->db->from('menu_deresto');
+        $this->db->join('type_menu', 'type_menu.id_type = menu_deresto.menu_type');
+        return $this->db->get()->result_array();
+    }
+
+    public function get_idPromoMenu($id)
+    {
+        return $this->db->get_where('menu_deresto', ['id' => $id])->result_array();
+    }
+
+    public function _update_PromoMenu($id)
+    {
+        $where = $this->get_idPromoMenu($id)['id'];
+        $data = [
+            'menu_type' => $this->_dataPost('selectType', TRUE),
+            'title'     => $this->_dataPost('titles', TRUE),
+            'caption'   => $this->_dataPost('captions', TRUE),
+            'img'       => _updatePromoOrMenu(),
+        ];
+        return $this->db->update('menu_deresto', $data, ['id' => $id]);
+    }
 }

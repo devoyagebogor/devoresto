@@ -78,3 +78,31 @@ function _checkPromoOrMenu()
     resto()->form_validation->set_rules('selectType', 'Type', 'required|max_length[50]');
     resto()->form_validation->set_rules('captions', 'Caption', 'required|max_length[50]');
 }
+
+function _updatePromoOrMenu()
+{
+    $id    = ci()->uri->segment(3);
+    $file_ = ci()->db->get_where('menu_deresto', ['id' => $id])->row_array();
+    $old_ImgPackages  = $file_->img_package;
+
+    $config['allowed_types'] = 'jpg|jpeg|png';
+    $config['upload_path']     = './assets/deresto/img/uploaded/menu_promo/';
+    $config['max_size']         = 2098;
+
+    ci()->load->library('upload', $config);
+
+    if (!empty(FCPATH . '/assets/deresto/img/uploaded/menu_promo/' . $old_ImgPackages)) {
+        if (ci()->upload->do_upload('img_')) {
+            unlink(FCPATH . '/assets/deresto/img/uploaded/menu_promo/' . $old_ImgPackages);
+            $update_ = ci()->upload->data();
+            $update_ImgPackages = $update_['file_name'];
+        } else {
+            $update_ImgPackages = $old_ImgPackages;
+        }
+    } else {
+        $update_ = ci()->upload->data();
+        $update_ImgPackages = $update_['file_name'];
+    }
+
+    return $update_ImgPackages;
+}

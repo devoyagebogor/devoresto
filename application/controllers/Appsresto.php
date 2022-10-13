@@ -71,4 +71,40 @@ class Appsresto extends CI_Controller
             _dataSuccess();
         }
     }
+
+    public function view_menuPromo()
+    {
+        $data['result_menu'] = $this->deresto->showProject_promoOrMenu();
+        $data['title'] = 'Devs Deresto';
+        resto()->load->view('templates/app/header_app', $data);
+        resto()->load->view('templates/app/sidebar_app');
+        resto()->load->view('appsresto/list_promoMenu', $data);
+        resto()->load->view('templates/app/footer_app');
+    }
+
+    public function view_galleryPar()
+    {
+        $data['title'] = 'Devs Deresto';
+        resto()->load->view('templates/app/header_app', $data);
+        resto()->load->view('templates/app/sidebar_app');
+        resto()->load->view('appsresto/list_parImg', $data);
+        resto()->load->view('templates/app/footer_app');
+    }
+
+    public function edit_($id)
+    {
+        _checkPromoOrMenu();
+        if ($this->form_validation->run() == FALSE) {
+            $data['result_menu'] = $this->deresto->showProject_promoOrMenu();
+            $data['title'] = 'Devs Deresto';
+            resto()->load->view('templates/app/header_app', $data);
+            resto()->load->view('templates/app/sidebar_app');
+            resto()->load->view('appsresto/list_promoMenu', $data);
+            resto()->load->view('templates/app/footer_app');
+            _dataErrors();
+        } else {
+            $this->deresto->_update_PromoMenu($id);
+            _dataSuccess();
+        }
+    }
 }

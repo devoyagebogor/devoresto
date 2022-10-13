@@ -15,6 +15,11 @@
                 </div>
             </div>
             <div class="row">
+                <div class="btn-group gap-4 gap-sm-4">
+                    <a href="<?= base_url('appsresto/view_menuPromo'); ?>" class="btn btn-secondary mb-4">View Table Promo / Menu</a>
+                    <a href="<?= base_url('appsresto/view_galleryPar'); ?>" class="btn btn-warning mb-4">View Table Galler / Parallax</a>
+
+                </div>
                 <!-- Promo & Menus -->
                 <div class="col-xl-6 col-md-12">
                     <div class="card bg-success text-white mb-4" data-bs-toggle="modal" data-bs-target="#modalForPromoMenu">
