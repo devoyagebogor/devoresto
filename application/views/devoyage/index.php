@@ -188,7 +188,7 @@
             </div>
         </div>
     </section>
-
+    <!-- done -->
     <footer id="contact" class="page-footer">
         <div class="container">
             <div class="row">
