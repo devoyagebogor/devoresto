@@ -75,6 +75,7 @@ class Appsresto extends CI_Controller
     public function view_menuPromo()
     {
         $data['result_menu'] = $this->deresto->showProject_promoOrMenu();
+        $data['types'] = $this->deresto->get_Types();
         $data['title'] = 'Devs Deresto';
         resto()->load->view('templates/app/header_app', $data);
         resto()->load->view('templates/app/sidebar_app');
@@ -85,6 +86,9 @@ class Appsresto extends CI_Controller
     public function view_galleryPar()
     {
         $data['title'] = 'Devs Deresto';
+        $data['parallaxHeader'] = $this->deresto->header_();
+        $data['parallaxContent'] = $this->deresto->content_();
+        $data['parallaxFooter'] = $this->deresto->footer_();
         resto()->load->view('templates/app/header_app', $data);
         resto()->load->view('templates/app/sidebar_app');
         resto()->load->view('appsresto/list_parImg', $data);
@@ -95,7 +99,8 @@ class Appsresto extends CI_Controller
     {
         _checkPromoOrMenu();
         if ($this->form_validation->run() == FALSE) {
-            $data['result_menu'] = $this->deresto->showProject_promoOrMenu();
+            $data['result_menu'] = $this->deresto->get_idPromoMenu($id);
+            $data['types'] = $this->deresto->get_Types();
             $data['title'] = 'Devs Deresto';
             resto()->load->view('templates/app/header_app', $data);
             resto()->load->view('templates/app/sidebar_app');
@@ -106,5 +111,30 @@ class Appsresto extends CI_Controller
             $this->deresto->_update_PromoMenu($id);
             _dataSuccess();
         }
+    }
+
+    public function delete_($id)
+    {
+        $this->deresto->_dpromoOrMenu($id);
+        resto()->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Deleted Success!</strong> You Can add new product in a tools begin.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+        redirect('appsresto/deresto_web_devs_app');
+    }
+
+    public function edit_header($id)
+    {
+        $this->deresto->editHedaerParallax($id);
+        _dataSuccess();
+    }
+
+    public function edit_content($id)
+    {
+        $this->deresto->editContentParallax($id);
+        _dataSuccess();
+    }
+
+    public function edit_footer($id)
+    {
+        $this->deresto->editFooterParallax($id);
+        _dataSuccess();
     }
 }

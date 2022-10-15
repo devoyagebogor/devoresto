@@ -71,13 +71,7 @@ class Deresto_model extends CI_Model
         return $this->_getData('ss');
     }
 
-    public function _notAllowedDeletePromo()
-    {
-        $not = $this->_getData('type_menu')['menu_type'];
-        if ($not['Promo']) {
-            // not allowed delete type menu PROMO.
-        }
-    }
+
 
     public function showProject_promoOrMenu()
     {
@@ -89,18 +83,93 @@ class Deresto_model extends CI_Model
 
     public function get_idPromoMenu($id)
     {
-        return $this->db->get_where('menu_deresto', ['id' => $id])->result_array();
+        return $this->db->get_where('menu_deresto', ['id' => $id])->row_array();
     }
 
     public function _update_PromoMenu($id)
     {
         $where = $this->get_idPromoMenu($id)['id'];
         $data = [
-            'menu_type' => $this->_dataPost('selectType', TRUE),
             'title'     => $this->_dataPost('titles', TRUE),
+            'menu_type' => $this->_dataPost('selectType', TRUE),
             'caption'   => $this->_dataPost('captions', TRUE),
             'img'       => _updatePromoOrMenu(),
         ];
-        return $this->db->update('menu_deresto', $data, ['id' => $id]);
+        return $this->db->update('menu_deresto', $data, ['id' => $where]);
+    }
+
+    public function _dpromoOrMenu($id)
+    {
+        $f = $this->get_idPromoMenu($id);
+
+        if ($f['menu_type'] == 7) {
+            $x = FALSE;
+            resto()->session->set_flashdata('dev', '<div class="alert alert-danger alert-dismissible fade show" role="alert"> <strong>Deleted Failed!</strong> Promotional products can not be deleted, can only be changed.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+            redirect('appsresto/view_menuPromo');
+        } else {
+            d_promoMenuImg();
+            $x = $this->db->delete('menu_deresto', ['id' => $f['id']]);
+        }
+        return $x;
+    }
+
+    public function header_()
+    {
+        return $this->_getData('parallax_header_deresto');
+    }
+
+    public function content_()
+    {
+        return $this->_getData('parallax_content_deresto');
+    }
+
+    public function footer_()
+    {
+        return $this->_getData('parallax_footer_deresto');
+    }
+
+    public function get_headerParallaxById($id)
+    {
+        return $this->db->get_where('parallax_header_deresto', ['id' => $id])->row_array();
+    }
+
+    public function editHedaerParallax($id)
+    {
+        $id = $this->get_headerParallaxById($id)['id'];
+        $data = [
+            'img'  => _editParallaxImg(),
+            'date' => time()
+        ];
+        return $this->db->update('parallax_header_deresto', $data, ['id' => $id]);
+    }
+
+    public function get_ContentParallax($id)
+    {
+        return $this->db->get_where('parallax_content_deresto', ['id' => $id])->row_array();
+    }
+
+    public function editContentParallax($id)
+    {
+        $id = $this->get_ContentParallax($id)['id'];
+        $data = [
+            'img'  => _editParallaxImgContent(),
+            'date' => time()
+        ];
+        return $this->db->update('parallax_content_deresto', $data, ['id' => $id]);
+    }
+
+    public function get_FooterParallaxId($id)
+    {
+        return $this->db->get_where('parallax_footer_deresto', ['id' => $id])->row_array();
+    }
+
+    public function editFooterParallax($id)
+    {
+        $id = $this->get_FooterParallaxId($id)['id'];
+        $data = [
+            'img'  => _editParallaxFooter(),
+            'date' => time()
+        ];
+        return $this->db->update('parallax_footer_deresto', $data, ['id' => $id]);
     }
 }

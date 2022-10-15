@@ -11,7 +11,9 @@ function _imgPromoOrMenu()
     $config = [
         'allowed_types' => 'jpg|png|jpeg',
         'upload_path'   => './assets/deresto/img/uploaded/menu_promo',
-        'max_size'      => 2098
+        'max_size'      => 2098,
+        'image_width'   => 1080,
+        'image_height'  => 1080
     ];
     resto()->load->library('upload', $config);
     if (!resto()->upload->do_upload('img_choose')) {
@@ -60,7 +62,7 @@ function _dataErrors()
 
 function _dataSuccess()
 {
-    resto()->session->set_flashdata('dev', '<div class="alert alert-success alert-dismissible fade show" role="alert"> <strong>Add New Project Success!</strong> You can see result for the web pages. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+    resto()->session->set_flashdata('dev', '<div class="alert alert-success alert-dismissible fade show" role="alert"> <strong>Tools Process Success!</strong> You can see result for the web pages. <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
     redirect('appsresto/deresto_web_devs_app');
 }
 
@@ -81,26 +83,126 @@ function _checkPromoOrMenu()
 
 function _updatePromoOrMenu()
 {
-    $id    = ci()->uri->segment(3);
-    $file_ = ci()->db->get_where('menu_deresto', ['id' => $id])->row_array();
-    $old_ImgPackages  = $file_->img_package;
+    $id    = resto()->uri->segment(3);
+    $file_ = resto()->db->get_where('menu_deresto', ['id' => $id])->row_array();
+    $old_ImgPackages  = $file_['img'];
 
     $config['allowed_types'] = 'jpg|jpeg|png';
-    $config['upload_path']     = './assets/deresto/img/uploaded/menu_promo/';
-    $config['max_size']         = 2098;
+    $config['upload_path']   = './assets/deresto/img/uploaded/menu_promo/';
+    $config['max_size']      = 2098;
+    $config['image_width']   = 1080;
+    $config['image_height']   = 1080;
 
-    ci()->load->library('upload', $config);
+    resto()->load->library('upload', $config);
 
     if (!empty(FCPATH . '/assets/deresto/img/uploaded/menu_promo/' . $old_ImgPackages)) {
-        if (ci()->upload->do_upload('img_')) {
+        if (resto()->upload->do_upload('img_')) {
             unlink(FCPATH . '/assets/deresto/img/uploaded/menu_promo/' . $old_ImgPackages);
-            $update_ = ci()->upload->data();
+            $update_ = resto()->upload->data();
             $update_ImgPackages = $update_['file_name'];
         } else {
             $update_ImgPackages = $old_ImgPackages;
         }
     } else {
-        $update_ = ci()->upload->data();
+        $update_ = resto()->upload->data();
+        $update_ImgPackages = $update_['file_name'];
+    }
+
+    return $update_ImgPackages;
+}
+
+function d_promoMenuImg()
+{
+    $id    = ci()->uri->segment(3);
+    $file_ = ci()->db->get_where('menu_deresto', ['id' => $id])->row_array();
+    $f_d   = $file_['img'];
+    unlink(FCPATH . '/assets/deresto/img/uploaded/menu_promo/' . $f_d);
+}
+
+function _editParallaxImg()
+{
+    $id    = resto()->uri->segment(3);
+    $file_ = resto()->db->get_where('parallax_header_deresto', ['id' => $id])->row_array();
+    $old_ImgPackages  = $file_['img'];
+
+    $config['allowed_types'] = 'jpg|jpeg|png';
+    $config['upload_path']   = './assets/deresto/img/uploaded/background/';
+    $config['max_size']      = 2098;
+    $config['image_width']   = 1500;
+    $config['image_height']   = 1000;
+
+    resto()->load->library('upload', $config);
+
+    if (!empty(FCPATH . '/assets/deresto/img/uploaded/background/' . $old_ImgPackages)) {
+        if (resto()->upload->do_upload('header_parallax')) {
+            unlink(FCPATH . '/assets/deresto/img/uploaded/background/' . $old_ImgPackages);
+            $update_ = resto()->upload->data();
+            $update_ImgPackages = $update_['file_name'];
+        } else {
+            $update_ImgPackages = $old_ImgPackages;
+        }
+    } else {
+        $update_ = resto()->upload->data();
+        $update_ImgPackages = $update_['file_name'];
+    }
+
+    return $update_ImgPackages;
+}
+
+function _editParallaxImgContent()
+{
+    $id    = resto()->uri->segment(3);
+    $file_ = resto()->db->get_where('parallax_content_deresto', ['id' => $id])->row_array();
+    $old_ImgPackages  = $file_['img'];
+
+    $config['allowed_types'] = 'jpg|jpeg|png';
+    $config['upload_path']   = './assets/deresto/img/uploaded/background/';
+    $config['max_size']      = 2098;
+    $config['image_width']   = 1500;
+    $config['image_height']   = 1000;
+
+    resto()->load->library('upload', $config);
+
+    if (!empty(FCPATH . '/assets/deresto/img/uploaded/background/' . $old_ImgPackages)) {
+        if (resto()->upload->do_upload('content_parallax')) {
+            unlink(FCPATH . '/assets/deresto/img/uploaded/background/' . $old_ImgPackages);
+            $update_ = resto()->upload->data();
+            $update_ImgPackages = $update_['file_name'];
+        } else {
+            $update_ImgPackages = $old_ImgPackages;
+        }
+    } else {
+        $update_ = resto()->upload->data();
+        $update_ImgPackages = $update_['file_name'];
+    }
+
+    return $update_ImgPackages;
+}
+
+function _editParallaxFooter()
+{
+    $id    = resto()->uri->segment(3);
+    $file_ = resto()->db->get_where('parallax_footer_deresto', ['id' => $id])->row_array();
+    $old_ImgPackages  = $file_['img'];
+
+    $config['allowed_types'] = 'jpg|jpeg|png';
+    $config['upload_path']   = './assets/deresto/img/uploaded/background/';
+    $config['max_size']      = 2098;
+    $config['image_width']   = 1500;
+    $config['image_height']   = 1000;
+
+    resto()->load->library('upload', $config);
+
+    if (!empty(FCPATH . '/assets/deresto/img/uploaded/background/' . $old_ImgPackages)) {
+        if (resto()->upload->do_upload('parallax_footer')) {
+            unlink(FCPATH . '/assets/deresto/img/uploaded/background/' . $old_ImgPackages);
+            $update_ = resto()->upload->data();
+            $update_ImgPackages = $update_['file_name'];
+        } else {
+            $update_ImgPackages = $old_ImgPackages;
+        }
+    } else {
+        $update_ = resto()->upload->data();
         $update_ImgPackages = $update_['file_name'];
     }
 

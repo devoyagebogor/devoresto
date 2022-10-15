@@ -47,10 +47,10 @@
                                     foreach ($result_menu as $result) : ?>
                                         <tr>
                                             <th><?= $no++; ?></th>
-                                            <td><img src="<?= base_url('assets/deresto/img/uploaded/menu_promo/' . $result['img']) ?>" alt="img" class="img-responsive w-75 d-block mx-auto"></td>
+                                            <td><img src="<?= base_url('assets/deresto/img/uploaded/menu_promo/' . $result['img']) ?>" alt="img" class="img-responsive w-50 d-block mx-auto"></td>
                                             <td><?= $result['menu_type']; ?></td>
                                             <td><?= $result['title']; ?></td>
-                                            <td></td>
+                                            <td><?= $result['caption']; ?></td>
                                             <td class="btn-group gap-3">
                                                 <a href="#" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editPromoMenu<?= $result['id']; ?>">Edit</a>
                                                 <a href="<?= base_url('appsresto/delete_/' . $result['id']) ?>" class="btn btn-danger" onclick="return confirm('Delete Row ?')">Delete</a>
@@ -71,12 +71,20 @@
                                                                 <?= form_open_multipart('appsresto/edit_/' . $result['id']); ?>
                                                                 <div class="mb-3">
                                                                     <label for="titleGallery" class="form-label">Title</label>
-                                                                    <input type="text" class="form-control" id="titleGallery" aria-describedby="titleHelp" name="title_img" value="<?= $result['title']; ?>">
+                                                                    <input type="text" class="form-control" id="titleGallery" aria-describedby="titleHelp" name="titles" value="<?= $result['title']; ?>">
                                                                     <div id="titleHelp" class="form-text">To Expressions for the moment.</div>
                                                                 </div>
                                                                 <div class="mb-3">
-                                                                    <label for="caption_img" class="form-label">Caption</label>
-                                                                    <input type="text" class="form-control" id="caption_img" name="caption_img" value="<?= $result['caption']; ?>">
+                                                                    <select name="selectType" id="selectType" class="form-select">
+                                                                        <option selected value="<?= $result['id_type']; ?>"><?= $result['menu_type']; ?></option>
+                                                                        <?php foreach ($types as $type) : ?>
+                                                                            <option value="<?= $type['id_type']; ?>"><?= $type['menu_type']; ?></option>
+                                                                        <?php endforeach; ?>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="captions" class="form-label">Caption</label>
+                                                                    <input type="text" class="form-control" id="captions" name="captions" value="<?= $result['caption']; ?>">
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label for="img_" class="form-label">Insert Image</label>

@@ -4,6 +4,7 @@
             <h1 class="mt-4">Dashboard</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">Devoyage Bogor - Deresto Coffee & Kitchen</li>
+                <li class="breadcrumb-item">@Width @Height (Promo & Menu) 1080px.</li>
             </ol>
             <!-- Deresto -->
             <div clascs="dropdown-divider"></div>
@@ -90,14 +91,7 @@
                                             <input type="text" class="form-control" id="titleImage" aria-describedby="titleHelp" name="titles">
                                             <div id="titleHelp" class="form-text">Title Image for Describe this Product.</div>
                                         </div>
-                                        <div class="mb-3">
-                                            <select name="selectType" id="selectType" class="form-select">
-                                                <option selected>Choose type Image</option>
-                                                <?php foreach ($types as $type) : ?>
-                                                    <option value="<?= $type['id_type']; ?>"><?= $type['menu_type']; ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
+                                        z
                                     </div>
                                     <div class="col-md-6 col-sm-12">
                                         <div class="mb-3">
