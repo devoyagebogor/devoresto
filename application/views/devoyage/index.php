@@ -182,7 +182,7 @@
             <div class="row">
                 <div class="col m6 center offset-m3">
                     <h5>
-                        <a href="#" class="btn-floating btn-large waves-effect waves-light red" style="margin-bottom: 24px;">Open Page</a>
+                        <a href="<?php echo base_url('deresto'); ?>" class="btn-floating btn-large waves-effect waves-light red" style="margin-bottom: 24px;" target="_blank">Open Page</a>
                     </h5>
                 </div>
             </div>
@@ -198,12 +198,15 @@
                     <img src="<?= base_url('assets/img/'); ?>logo/logo.jpg" alt="" class="circle responsive-img logo">
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Pages</h5>
+                    <h5 class="white-text">Pages and Patners</h5>
                     <ul>
-                        <li><a class="grey-text text-lighten-3" href="#!">WhatsApp</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">0878-2019-3911</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">Customer Service</a></li>
-                        <li><a class="grey-text text-lighten-3" href="#!">0251 88900 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://wa.link/6x0lni" target="_blank">WhatsApp</a></li> Or &nbsp; <span>0251-8200-444</span>
+                        <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/devoyagebogor/" target="_blank">Instagram</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.youtube.com/channel/UCxm-iqBLoPXrmO64tmDC4sw" target="_blank">Youtube</a></li>
+                        <div class="divider"></div>
+                        <li><a class="grey-text text-lighten-3" href="https://rumahairbogor.net" target="_blank">Rumah Air Bogor</a></li>
+                        <li><a class="grey-text text-lighten-3" href="<?= base_url('deresto'); ?>" target="_blank">Deresto Coffee & Kitchen</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://www.instagram.com/mywaterkingdom/" target="_blank">Water Kingdom</a></li>
                     </ul>
                 </div>
             </div>
